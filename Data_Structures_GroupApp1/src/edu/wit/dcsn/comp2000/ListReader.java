@@ -12,6 +12,7 @@ import java.util.Scanner;
  * 
  * @author horowitzb
  */
+//TODO equals method, testing, documenting
 public class ListReader {
 
 	// instance variables
@@ -38,7 +39,7 @@ public class ListReader {
 	public ListReader(String GroceriesTextFile) {
 		try {
 			Scanner sc = new Scanner(new FileReader(GroceriesTextFile));
-			while (sc.hasNext()) {
+			while (sc.hasNextLine()) {
 				groceryList.add(new GroceryItem(sc.next(), sc.next(), sc.next(), sc.next(), sc.next()));
 			}
 		} catch (FileNotFoundException e) {
@@ -76,5 +77,5 @@ public class ListReader {
 			listString.append(groceryList.get(i).toString());
 		}
 		return listString.toString();
-	}
+	}// end toString
 }// end ListReader class
