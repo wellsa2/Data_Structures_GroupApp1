@@ -42,8 +42,10 @@ public class ListReader
 	}//end getGroceryItem
 	
 	public String toString() {
+		StringBuilder listString = new StringBuilder();
 		for(int i = 0; i < groceryList.size(); i++) {
-			groceryList.get(i).toString();
+			listString.append(groceryList.get(i).toString());
 		}
+		return listString.toString();
 	}
 	}// end ListReader class
