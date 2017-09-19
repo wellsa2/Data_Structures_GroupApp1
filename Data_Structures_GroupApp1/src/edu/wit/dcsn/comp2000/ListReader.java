@@ -15,10 +15,21 @@ import java.util.Scanner;
 public class ListReader 
 	{
 	
+	//instance variables
 	/**
 	 * resizeable array (arraylist) holding type GroceryItem
 	 */
 	private ArrayList<GroceryItem> groceryList = new ArrayList<GroceryItem>(20);
+	
+	//constructors
+	
+	/**
+	 * default constructor. uses groceries-1.txt as input string / filename
+	 */
+	public ListReader() 
+	{
+		this("groceries-1.txt");
+	}
 	
 	/**
 	 * constructor fills groceryList with objects of type GroceryItem from a provided text file 
@@ -39,6 +50,8 @@ public class ListReader
 			System.out.println("File " + GroceriesTextFile + " not found");
 			}	
 		}//end ListReader constructor	
+	
+	//public methods
 	
 	/**
 	 * returns the full GroceryList
