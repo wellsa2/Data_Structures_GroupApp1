@@ -1,5 +1,6 @@
 package edu.wit.dcsn.comp2000;
 
+
 //TODO Documentation
 public enum Size
 	{
