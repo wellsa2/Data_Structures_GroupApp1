@@ -22,5 +22,12 @@ public class ListReader
 			{
 			System.out.println("File " + GroceriesTextFile + " not found");
 			}	
-		}//end ListReader constructor		
+		}//end ListReader constructor	
+	public ArrayList<GroceryItem> getGroceryList(){
+		return groceryList;
+	}
+	
+	public GroceryItem getGroceryItem(int i) {
+		return groceryList.get(i);
+	}
 	}// end ListReader class
