@@ -1,7 +1,4 @@
 package edu.wit.dcsn.comp2000;
-
-
-
 /**
  * Data type for grocery items
  * 
@@ -54,6 +51,6 @@ public class GroceryItem {
 	@Override
 	public String toString()
 	{
-		return String.format("");
+		return String.format("%s", NAME);
 	}
 }
