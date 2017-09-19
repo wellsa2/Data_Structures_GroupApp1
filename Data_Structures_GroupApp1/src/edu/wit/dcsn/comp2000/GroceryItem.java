@@ -8,12 +8,12 @@ package edu.wit.dcsn.comp2000;
 //TODO documentation
 public class GroceryItem {
 	final private String NAME;
-	final private Size SIZE;
-	final private Weight WEIGHT;
-	final private Firmness FIRMNESS;
+	final private ItemSize SIZE;
+	final private ItemWeight WEIGHT;
+	final private ItemFirmness FIRMNESS;
 	final private boolean FRAGILILITY;
 	
-	public GroceryItem(String name, Size size, Weight weight, Firmness firmness, String fragility)
+	public GroceryItem(String name, ItemSize size, ItemWeight weight, ItemFirmness firmness, String fragility)
 	{
 		NAME = name;
 		SIZE=size;

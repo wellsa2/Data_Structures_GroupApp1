@@ -42,7 +42,7 @@ public class ListReader
 			Scanner sc = new Scanner(new FileReader(GroceriesTextFile));
 			while(sc.hasNext())
 				{
-				groceryList.add(new GroceryItem(sc.next(), sc.next(), sc.next(), sc.next(), sc.next()));
+				groceryList.add(new GroceryItem(sc.next(), ItemSize.interpretDescription(sc.next()), ItemWeight.interpretDescription(sc.next()), ItemFirmness.interpretDescription(sc.next()), sc.next()));
 				}
 			} 
 		catch (FileNotFoundException e)
