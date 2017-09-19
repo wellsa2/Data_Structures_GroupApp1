@@ -11,7 +11,7 @@ public class GroceryItem {
 	final private ItemSize SIZE;
 	final private ItemWeight WEIGHT;
 	final private ItemFirmness FIRMNESS;
-	final private boolean FRAGILILITY;
+	final private boolean FRAGILITY;
 	
 	public GroceryItem(String name, ItemSize size, ItemWeight weight, ItemFirmness firmness, String fragility)
 	{
@@ -19,38 +19,38 @@ public class GroceryItem {
 		SIZE=size;
 		WEIGHT=weight;
 		FIRMNESS=firmness;
-		FRAGILILITY=(fragility.equalsIgnoreCase("breakable"))?true:false;
+		FRAGILITY=(fragility.equalsIgnoreCase("breakable"))?true:false;
 	}
 
 	public String getName() {
 		return NAME;
 	}
 	
-	public String getSize()
+	public ItemSize getSize()
 	{
 		return SIZE;
 
 	}
 	
-	public String getWeight()
+	public ItemWeight getWeight()
 	{
 		return WEIGHT;
 	}
 	
-	public String getFirmness()
+	public ItemFirmness getFirmness()
 	{
 		return FIRMNESS;
 	}
 	
 	public boolean getFragile()
 	{
-		return FRAGILE;
+		return FRAGILITY;
 	}
 	
 	//TODO Format system output
 	@Override
 	public String toString()
 	{
-		return String.format("%s %-10s %s %-10s %s %-10s %s %-10s %s %n", NAME, SIZE, WEIGHT, FIRMNESS, FRAGILE);
+		return String.format("%s %-10s %s %-10s %s %-10s %s %-10s %s %n", NAME, SIZE.toString(), WEIGHT.toString(), FIRMNESS.toString(), FRAGILITY);
 	}
 }
