@@ -11,15 +11,15 @@ public class GroceryItem {
 	final private Size SIZE;
 	final private Weight WEIGHT;
 	final private Firmness FIRMNESS;
-	final private Fragility FRAGILILITY;
+	final private boolean FRAGILILITY;
 	
-	public GroceryItem(String name, Size size, Weight weight, Firmness firmness, Fragility fragility)
+	public GroceryItem(String name, Size size, Weight weight, Firmness firmness, String fragility)
 	{
-		this.NAME = name;
-		this.SIZE=size;
-		this.WEIGHT=weight;
-		this.FIRMNESS=firmness;
-		this.FRAGILILITY=fragility;
+		NAME = name;
+		SIZE=size;
+		WEIGHT=weight;
+		FIRMNESS=firmness;
+		FRAGILILITY=(fragility.equalsIgnoreCase("breakable"))?true:false;
 	}
 
 	public String getName() {
