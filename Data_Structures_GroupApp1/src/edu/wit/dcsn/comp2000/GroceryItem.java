@@ -8,18 +8,18 @@ package edu.wit.dcsn.comp2000;
 //TODO documentation
 public class GroceryItem {
 	final private String NAME;
-	final private String SIZE;
-	final private String WEIGHT;
-	final private String FIRMNESS;
-	final private boolean FRAGILE;
+	final private Size SIZE;
+	final private Weight WEIGHT;
+	final private Firmness FIRMNESS;
+	final private Fragility FRAGILILITY;
 	
-	public GroceryItem(String name, String size, String weight, String firmness, String breakable)
+	public GroceryItem(String name, Size size, Weight weight, Firmness firmness, Fragility fragility)
 	{
 		this.NAME = name;
 		this.SIZE=size;
 		this.WEIGHT=weight;
 		this.FIRMNESS=firmness;
-		this.FRAGILE=(breakable.equals("breakable"))? true : false;
+		this.FRAGILILITY=fragility;
 	}
 
 	public String getName() {

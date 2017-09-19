@@ -2,14 +2,26 @@ package edu.wit.dcsn.comp2000;
 
 public enum Size
 	{
-	SMALL (1),
-	MEDIUM (2),
-	LARGE (3);
+	SMALL ("Small", 1),
+	MEDIUM ("Medium", 2),
+	LARGE ("Large", 3);
 	
-	private final int size;
+	private final String NAME;
+	private final int SIZE;
 	
-	Size(int size)
+	Size(String name,int size)
 		{
-		this.size=size;
+		NAME=name;
+		SIZE=size;
 		}
+	
+	public String getName()
+		{
+		return NAME;
+		}	
+	public int getSize()
+		{
+		return SIZE;	
+		}
+
 	}

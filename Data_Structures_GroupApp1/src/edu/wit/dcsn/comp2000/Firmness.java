@@ -2,15 +2,27 @@ package edu.wit.dcsn.comp2000;
 
 public enum Firmness
 	{
-	SOFT (1),
-	FIRM (2),
-	HARD (3);
+	SOFT ("Soft", 1),
+	FIRM ("Firm", 2),
+	HARD ("Hard", 3);
 	
-	private final int firmness;
+	private final String NAME;
+	private final int FIRMNESS;
 	
-	Firmness (int firmness)
+	Firmness (String name, int firmness)
 		{
-		this.firmness=firmness;
+		NAME=name;
+		FIRMNESS=firmness;
+		}
+	
+	public String getName()
+		{
+		return NAME;
+		
+		}	
+	public int getFirmness()
+		{
+		return FIRMNESS;	
 		}
 	
 	}
