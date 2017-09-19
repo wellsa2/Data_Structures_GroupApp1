@@ -51,6 +51,6 @@ public class GroceryItem {
 	@Override
 	public String toString()
 	{
-		return String.format("%s", NAME);
+		return String.format("%s %-10s %s %-10s %s %-10s %s %-10s %s %n", NAME, SIZE, WEIGHT, FIRMNESS, FRAGILE);
 	}
 }

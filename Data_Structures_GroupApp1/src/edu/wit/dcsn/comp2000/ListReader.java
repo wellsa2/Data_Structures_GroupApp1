@@ -23,11 +23,27 @@ public class ListReader
 			System.out.println("File " + GroceriesTextFile + " not found");
 			}	
 		}//end ListReader constructor	
+	
+	/**
+	 * 
+	 * @return groceryList
+	 */
 	public ArrayList<GroceryItem> getGroceryList(){
 		return groceryList;
-	}
+	}//end getGroceryList
 	
+	/**
+	 *
+	 * @param int i
+	 * @return groceryItem at int i
+	 */
 	public GroceryItem getGroceryItem(int i) {
 		return groceryList.get(i);
+	}//end getGroceryItem
+	
+	public String toString() {
+		for(int i = 0; i < groceryList.size(); i++) {
+			groceryList.get(i).toString();
+		}
 	}
 	}// end ListReader class
