@@ -12,6 +12,7 @@ import java.util.Scanner;
  * method for individual arraylists has a toString method
  * @author Brandon Horowitz
  */
+
 public class ListReader 
 	{
 	
