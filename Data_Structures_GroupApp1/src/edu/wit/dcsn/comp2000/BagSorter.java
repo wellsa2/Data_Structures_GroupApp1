@@ -20,8 +20,9 @@ public class BagSorter implements GroceryItem {
 		numItems = 0;
 	}
 	
-	//TODO: add item from list that contains the words soft and light//ean add(Grocery item)
-	public bool {
+	//TODO: add item from list that contains the words soft and light 
+	public boolean add(Grocery item){
+	
 		
 	}
 	
