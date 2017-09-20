@@ -24,8 +24,10 @@ public class BagSorter implements GroceryItem {
 		//add item from list that contains the words soft and light//
 	}
 	
-	/* make new bags that will take whatever the first bag didn't.
-	* then use remove
+	/* 
+	* make new bags that will take whatever the first bag didn't.
+	* then fill this bag and see if there are items left
+	*/
 	
 					
 }
