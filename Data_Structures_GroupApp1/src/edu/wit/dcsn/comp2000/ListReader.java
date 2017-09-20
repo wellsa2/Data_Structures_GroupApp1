@@ -5,12 +5,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * class ListReader has an arraylist storing multiple objects of type GroceryItem with a default constructor to fill it with info from an input string
- * that corresponds to a text file
- * has a get method for the whole arraylist
- * has a get method for individual arraylists
- * has a toString method
- * @author horowitzb
+ * class ListReader has an arraylist storing multiple objects
+ * of type GroceryItem with a default constructor to fill it 
+ * with info from an input string that corresponds to a text 
+ * file has a get method for the whole arraylist has a get 
+ * method for individual arraylists has a toString method
+ * @author Brandon Horowitz
  */
 public class ListReader 
 	{
