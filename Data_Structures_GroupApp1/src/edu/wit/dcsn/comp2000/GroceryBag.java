@@ -4,11 +4,18 @@ package edu.wit.dcsn.comp2000;
 public class GroceryBag {
 	private int weightLeft = 10;
 	private int spaceLeft = 10;
-	private int holdingType;
+	private char holdingType;
 
-	public GroceryBag() 
+	public GroceryBag(GroceryItem item) 
 	{
-
+		//add(item);
+		holdingType = getItemType(item);
+	}
+	
+	//TODO
+	public char getItemType(GroceryItem item) {
+		
+		return '?';
 	}
 	
 	public int getWeightLeft()
@@ -23,7 +30,7 @@ public class GroceryBag {
 	
 	//TODO define bag types and implement isCorrectType
 	private boolean isCorrectType(GroceryItem item) {
-		
+		return holdingType == getItemType(item);
 	}
 	
 	//TODO

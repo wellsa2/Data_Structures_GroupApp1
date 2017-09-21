@@ -1,7 +1,7 @@
 package edu.wit.dcsn.comp2000;
 
 
-public class BagSorter implements GroceryItem {
+public class BagSorter extends GroceryBag {
 	//TODO all logic
 	/* 
 	* make a new (empty) bag and fill it with items that corresponds
