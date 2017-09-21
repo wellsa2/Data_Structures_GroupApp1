@@ -8,7 +8,7 @@ public class BagSorter implements GroceryItem {
 	* to each pair of Weight+Firmness. Max of 10 items a bag. The program should
 	* traverse through groceries-1.txt to
 	*/
-	private Grocery[] items; //array to store groceries
+	private GroceryItem[] items; //array to store groceries
 	
 	private int numItems; //# of item per bag
 	
@@ -16,12 +16,12 @@ public class BagSorter implements GroceryItem {
 	
 	//default sized, empty bag
 	public Bag(){
-		items = new Grocery[DEFAILT_MAX_SIZE];
+		items = new GroceryItem[DEFAULT_MAX_SIZE];
 		numItems = 0;
 	}
 	
 	//TODO: add item from list that contains the words soft and light 
-	public boolean add(Grocery item){
+	public boolean add(GroceryItem item){
 	
 		
 	}
