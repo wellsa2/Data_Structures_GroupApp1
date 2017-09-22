@@ -1,25 +1,44 @@
 package edu.wit.dcsn.comp2000;
 
-import java.util.ArrayList;
 
-//TODO document, define bag types, implement isCorrectType
+/**
+ * A class that implements a bag of GroceryItems using ResizableArrayBag
+ * The bag fills based on weight, size, and holdingType
+ * Default Constructor must contain an item to be able to define holdingType
+ * @author horowitzb
+ *
+ */
 public class GroceryBag {
-	private int weightLeft = 10;
-	private int spaceLeft = 10;
-	private char holdingType = '?';
+	private int weightLeft = 10; //Maximum weight
+	private int spaceLeft = 10; //Maximum size
+	private char holdingType = '?'; //type of item the bag can hold.
 	private ResizableArrayBag<GroceryItem> bag;
 
+	/**
+	 * defines what type of item grocerybag can hold, and adds the first item
+	 * @param item
+	 */
 	public GroceryBag(GroceryItem item) {
-		add(item);
+		add(item); 
 		holdingType = getItemType(item);
 	}
 
-	public void add(GroceryItem item) {
+	/**
+	 * if the item can be held by the bag type, 
+	 * @param item
+	 */
+	public boolean add(GroceryItem item) {
 		if (canHold(item)) {
 			bag.add(item);
+			return true;
 		}
+		return false;
 	}
-
+	/** 
+	 * removes one unspecified entry from this bag and adjusts the weightleft and spaceleft accordingly, if possible
+	 * @return Either the removed entry, if the removal
+     * was successful, or null.
+	 */
 	public GroceryItem remove() {
 		GroceryItem removed = bag.remove();
 		if (!bag.isEmpty()) {
@@ -29,6 +48,10 @@ public class GroceryBag {
 		return removed;
 	}
 
+	/** Removes one occurrence of a given entry from this bag and adjusts weighleft and spaceleft accordingly.
+    *	@param item  The entry to be removed.
+    *	@return  True if the removal was successful, or false if not.
+    */
 	public boolean remove(GroceryItem item) {
 		boolean removed = bag.remove(item);
 		if(removed) {
@@ -38,7 +61,26 @@ public class GroceryBag {
 		return removed;
 	}// end remove
 
-	public char getItemType(GroceryItem item) {
+	/**
+	 * removes all entries from the bag
+	 */
+	public void clear() {
+		bag.clear();
+	}
+	
+	/** Counts the number of times a given entry appears in this bag.
+    *	@param item  The entry to be counted.
+    *	@return  The number of times anEntry appears in this bag. */
+	public int getFrequencyOf(GroceryItem item) {
+		return bag.getFrequencyOf(item);
+	}
+	
+	/**
+	 * returns the holdingtype of item
+	 * @param item
+	 * @return a char representing the holdingtype of item
+	 */
+	private char getItemType(GroceryItem item) {
 		if (item.getFragile()) {
 			return 'a';
 		} else {
@@ -54,25 +96,55 @@ public class GroceryBag {
 		return '?';
 	}
 
+	/**
+	 * get method for weightLeft
+	 * @return weighLeft
+	 */
 	public int getWeightLeft() {
 		return weightLeft;
 	}// end getWeightLeft
 
+	/**
+	 * get method for spaceLeft
+	 * @return spaceLeft
+	 */
 	public int getSpaceLeft() {
 		return spaceLeft;
 	}// end getSpaceLeft
 
-	// TODO define bag types and implement isCorrectType
+	/**
+	 * @param item
+	 * @return true if the bag is the same type of the item, or if the holdingType is undefined
+	 */
 	private boolean isCorrectType(GroceryItem item) {
 		return holdingType == getItemType(item) || holdingType == '?';
 	}
 
+	/**
+	 * @param item
+	 * @return true if the bag has enough size and space left for item
+	 */
 	private boolean hasRoom(GroceryItem item) {
 		return item.getSize().sizeValue > spaceLeft && item.getWeight().weightValue > weightLeft;
 	}
 
-	// TODO
+	/**
+	 * @param item
+	 * @return true if bag can hold item
+	 */
 	public boolean canHold(GroceryItem item) {
 		return hasRoom(item) && isCorrectType(item);
+	}
+	
+	/**
+	 * toString method for bag
+	 */
+	public String toString() {
+		GroceryItem[] bagArray = bag.toArray();
+		StringBuilder bagString = new StringBuilder();
+		for(GroceryItem item : bagArray) {
+			bagString.append(item).toString();
+		}
+		return bagString.toString();
 	}
 }
