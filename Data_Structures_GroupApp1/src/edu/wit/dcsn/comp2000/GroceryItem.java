@@ -53,4 +53,8 @@ public class GroceryItem {
 	{
 		return String.format("%s %-10s %s %-10s %s %-10s %s %-10s %s %n", NAME, SIZE.toString(), WEIGHT.toString(), FIRMNESS.toString(), FRAGILITY);
 	}
+	
+	public boolean equals(GroceryItem item) {
+		return this.toString().equalsIgnoreCase(item.toString());
+	}
 }
