@@ -7,7 +7,7 @@ public class GroceryBag {
 	private int weightLeft = 10;
 	private int spaceLeft = 10;
 	private char holdingType = '?';
-	private ArrayList<GroceryItem> bag;
+	private ResizableArrayBag<GroceryItem> bag;
 
 	public GroceryBag(GroceryItem item) {
 		add(item);
@@ -21,27 +21,20 @@ public class GroceryBag {
 	}
 
 	public GroceryItem remove() {
-		GroceryItem removed = null;
+		GroceryItem removed = bag.remove();
 		if (!bag.isEmpty()) {
-			weightLeft += bag.get(bag.size() - 1).getWeight().weightValue;
-			spaceLeft += bag.get(bag.size() - 1).getSize().sizeValue;
-			removed = bag.get(bag.size() - 1);
-			bag.remove(bag.size() - 1);
+			weightLeft += removed.getWeight().weightValue;
+			spaceLeft += removed.getSize().sizeValue;
 		}
 		return removed;
 	}
 
-	public GroceryItem remove(GroceryItem item) {
-		GroceryItem removed = null;
-
-		for (int i = 0; i < bag.size(); i++) {
-			if (bag.get(i).equals(item)) {
-				weightLeft += bag.get(i).getWeight().weightValue;
-				spaceLeft += bag.get(i).getSize().sizeValue;
-				removed = bag.get(i);
-				bag.remove(i);
-			} // end if
-		} // end for
+	public boolean remove(GroceryItem item) {
+		boolean removed = bag.remove(item);
+		if(removed) {
+			weightLeft += item.getWeight().weightValue;
+			spaceLeft += item.getSize().sizeValue;
+		}
 		return removed;
 	}// end remove
 
