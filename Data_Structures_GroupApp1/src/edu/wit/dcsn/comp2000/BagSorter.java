@@ -1,27 +1,32 @@
 package edu.wit.dcsn.comp2000;
 
 
-public class BagSorter extends GroceryBag {
+public class BagSorter {
 	//TODO all logic
 	/* 
-	* make a new (empty) bag and fill it with items that corresponds
-	* to each pair of firmness. Max of 12 items a bag. The program should
-	* traverse through groceries-1.txt to
+	* if a bag is full create a new bag
+	* use as many bag as needed
 	*/
 	private GroceryItem[] items; //array to store groceries
-	
 	private int numItems; //# of item per bag
 	
-	public static final int DEFAULT_MAX_SIZE = 12; //declares max amount
+	public static final int DEFAULT_MAX_SIZE = 6; //declares max amount
 	
 	//default sized, empty bag
 	public BagA(){
 		items = new GroceryItem[DEFAULT_MAX_SIZE];
 		numItems = 0;
 	}
+	//is it empty?
+	public boolean isEmpty(){
+		return == 0;
+	}
+	
+	//
 	
 	
-	/* TODO:
+	
+	/* TODO:6
 	* make new bags that will take whatever the first bag didn't.
 	* then fill this bag and see if there are items left
 	*/
