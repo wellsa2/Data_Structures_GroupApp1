@@ -1,7 +1,7 @@
 package edu.wit.dcsn.comp2000;
 
 
-public class BagSorter {
+public class BagSorter  {
 	//TODO all logic
 	/* 
 	* if a bag is full create a new bag
@@ -13,7 +13,7 @@ public class BagSorter {
 	public static final int DEFAULT_MAX_SIZE = 6; //declares max amount
 	
 	//default sized, empty bag
-	public BagA(){
+	public Bag(){
 		items = new GroceryItem[DEFAULT_MAX_SIZE];
 		numItems = 0;
 	}
@@ -22,6 +22,10 @@ public class BagSorter {
 		return == 0;
 	}
 	
+	public boolean removeItems(Bag twoBag){
+        // check input
+        if (twoBag == null || twoBag.numItems() == 0)
+            return false;
 	//
 	
 	
