@@ -14,7 +14,16 @@ public class GroceryBag {
 	
 	//TODO
 	public char getItemType(GroceryItem item) {
-		
+		if(item.getFragile()) {
+			return 'a';
+		}
+		else {
+		switch(item.getWeight().weightValue) {
+		case 1: return 'a';
+		case 2: return 'b';
+		case 3: return 'c';
+		}
+		}
 		return '?';
 	}
 	
