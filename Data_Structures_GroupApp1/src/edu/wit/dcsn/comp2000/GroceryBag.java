@@ -22,7 +22,7 @@ public class GroceryBag
 	 */
 	public GroceryBag(GroceryItem item)
 	{
-		if (item == null)
+		if (item == null && weightLeft > item.getWeight().weightValue && spaceLeft > item.getSize().sizeValue)
 		{
 			initialized = false;
 			System.exit(1);
