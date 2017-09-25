@@ -1,4 +1,5 @@
 package edu.wit.dcsn.comp2000;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ public class ListReader
 	 */
 	public ListReader() 
 	{
-		this("groceries-1.txt");
+		this(System.getProperty("user.dir") + File.separator + "groceries-1.txt");
 	}
 	
 	/**
