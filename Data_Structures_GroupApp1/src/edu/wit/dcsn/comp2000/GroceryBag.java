@@ -22,19 +22,14 @@ public class GroceryBag
 	 */
 	public GroceryBag(GroceryItem item)
 	{
-		if (item == null)
-		{
-			initialized = false;
-			System.exit(1);
-		} // end if
-		if (weightLeft > item.getWeight().weightValue && spaceLeft > item.getSize().sizeValue) 
+		if (item == null || weightLeft > item.getWeight().weightValue && spaceLeft > item.getSize().sizeValue)
 		{
 			initialized = false;
 			System.exit(1);
 		} // end if
 		bag = new ResizableArrayBag<>();
 		holdingType = getItemType(item);
-		bag.add(item);
+		bag.add(item); //skips add method's checkInitialization
 		weightLeft -= item.getWeight().weightValue;
 		spaceLeft -= item.getSize().sizeValue;
 		initialized = true;
@@ -231,6 +226,26 @@ public class GroceryBag
 	} // end toString
 	
 	
+	/** Retrieves all entries that are in this bag.
+     *	@return  A newly allocated array of all the entries in this bag.
+     */
+	public GroceryItem[] toArray()
+	{
+		checkInitialization();
+		return bag.toArray();
+	}//end toArray
+	
+	
+	/** Tests whether this bag contains a given entry.
+    @param anEntry  The entry to locate.
+    @return  True if this bag contains item, or false otherwise. */
+	public boolean contains(GroceryItem item)
+	{
+		checkInitialization();
+		return bag.contains(item);
+	}//end contains
+
+
 	/**
 	 * ensures grocery bag has been properly initialized
 	 */
