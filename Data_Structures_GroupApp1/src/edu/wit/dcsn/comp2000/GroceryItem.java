@@ -58,4 +58,10 @@ public class GroceryItem {
 	public boolean equals(GroceryItem item) {
 		return this.toString().equalsIgnoreCase(item.toString());
 	}
+	
+	public static void main(String[] args)
+	{
+		GroceryItem item = new GroceryItem("pickle", ItemSize.LARGE, ItemWeight.HEAVY, ItemFirmness.FIRM, "unbreakable");
+		System.out.print(item.toString());
+	}
 }
