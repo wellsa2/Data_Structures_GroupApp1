@@ -46,6 +46,7 @@ public class ListReader
 			{
 				groceryList.add(new GroceryItem(sc.next(), ItemSize.interpretDescription(sc.next()), ItemWeight.interpretDescription(sc.next()), ItemFirmness.interpretDescription(sc.next()), sc.next()));
 			}
+			System.out.println(System.getProperty("user.dir") + File.separator + "groceries-1.txt has been found");
 		} 
 		catch (FileNotFoundException e)
 		{
