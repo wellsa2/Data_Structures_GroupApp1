@@ -14,10 +14,24 @@ public class BagSorter
 	public ArrayList<GroceryBag> bags; // ArrayList to hold grocery bags
 	
 	
-	//default sized, empty bag
+	/**
+	 * creates a bag sorter that puts grocery items from the default
+	 * ListReader into an ArrayList of bags
+	 */
 	public BagSorter()
 	{
-		items = new ListReader().getGroceryList();
+		this(new ListReader());
+	} // end default constructor
+	
+	
+	/**
+	 * creates a bag sorter that puts grocery items from the
+	 * supplied ListReader into an ArrayList of bags
+	 * @param listreader
+	 */
+	public BagSorter(ListReader listreader)
+	{
+		items = listreader.getGroceryList();
 		bags = new ArrayList<>();
 		for (GroceryItem item : items)
 		{
@@ -34,15 +48,33 @@ public class BagSorter
 				bags.add(new GroceryBag(item));
 			} // end if
 		} // end for
-	} // end default constructor
+	}
 	
 	
+	/**
+	 * returns the arraylist of filled bags
+	 * @return ArrayList of bags
+	 */
 	public ArrayList<GroceryBag> getBags()
 	{
 		return bags;
 	} // end getBags
 	
+	/**
+	 * gets the GroceryBag at the specified index
+	 * @param i  index of desired bag
+	 * @return  the GroceryBag at the supplied index
+	 */
+	public GroceryBag getBagAt(int i)
+	{
+		return bags.get(i);
+	} // end getBagAt
 	
+	
+	/**
+	 * returns a string representation of the contents of each bag
+	 * @return a string representation of the contents of each bag
+	 */
 	public String toString() 
 	{
 		String returnString = "";
