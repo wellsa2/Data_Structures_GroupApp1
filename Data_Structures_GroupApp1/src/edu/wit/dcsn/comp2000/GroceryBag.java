@@ -22,10 +22,8 @@ public class GroceryBag
 	 */
 	public GroceryBag(GroceryItem item)
 	{
-		System.out.println("break 1");
 		if (item == null)
 		{
-			System.out.println("break 2");
 			initialized = false;
 			System.exit(1);
 		} // end if
