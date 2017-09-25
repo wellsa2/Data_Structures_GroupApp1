@@ -6,24 +6,18 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * class ListReader has an arraylist storing multiple objects
+ * class ListReader has an ArrayList storing multiple objects
  * of type GroceryItem with a default constructor to fill it 
- * with info from an input string that corresponds to a text 
- * file has a get method for the whole arraylist has a get 
- * method for individual arraylists has a toString method
+ * with info from an text file full of grocery items and their traits
+ * Has a get method for the whole ArrayList and a get 
+ * method for individual items and a toString method
  * @author Brandon Horowitz
  */
-
 public class ListReader 
 {
-	
-	//instance variables
-	/**
-	 * resizeable array (arraylist) holding type GroceryItem
-	 */
 	private ArrayList<GroceryItem> groceryList = new ArrayList<GroceryItem>(20);
 	private boolean initialized;
-	//constructors
+	
 	
 	/**
 	 * default constructor. uses groceries-1.txt as input string / filename
@@ -33,9 +27,10 @@ public class ListReader
 		this(System.getProperty("user.dir") + File.separator + "groceries-1.txt");
 	}
 	
+	
 	/**
 	 * constructor fills groceryList with objects of type GroceryItem from a provided text file 
-	 * @param GroceriesTextFile
+	 * @param GroceriesTextFile text file to read from
 	 */
 	public ListReader(String GroceriesTextFile)
 	{
@@ -51,47 +46,59 @@ public class ListReader
 		catch (FileNotFoundException e)
 		{
 			System.out.println("File " + GroceriesTextFile + " not found");
+			initialized = false;
 		}
 		initialized = true;
 	}//end ListReader constructor	
 	
-	//public methods
 	
 	/**
 	 * returns the full GroceryList
-	 * @return groceryList
+	 * @return groceryList the ArrayList of GroceryItems
 	 */
-	public ArrayList<GroceryItem> getGroceryList() {
+	public ArrayList<GroceryItem> getGroceryList()
+	{
 		checkInitialization();
 		return groceryList;
 	}//end getGroceryList
 	
+	
 	/**
-	 *returns GroceryItem at location i in the array
+	 * returns GroceryItem at location i in the array
 	 *
-	 * @param int i
-	 * @return groceryItem
+	 * @param int i  index of desired GroceryItem
+	 * @return groceryItem  the GroceryItem at the supplied index
 	 */
-	public GroceryItem getGroceryItem(int i) {
+	public GroceryItem getGroceryItem(int i)
+	{
 		checkInitialization();
 		return groceryList.get(i);
 	}//end getGroceryItem
 	
+	
 	/**
-	 * returns a string containing a toString of all GroceryItem objects
+	 * returns a string containing all GroceryItem objects
+	 * @return a string of the GroceryItems in the grocery list
 	 */
-	public String toString() {
+	public String toString()
+	{
 		checkInitialization();
 		StringBuilder listString = new StringBuilder();
-		for(int i = 0; i < groceryList.size(); i++) {
+		for(int i = 0; i < groceryList.size(); i++)
+		{
 			listString.append(groceryList.get(i).toString());
 		}
 		return listString.toString();
 	} // end toString
 	
-	//private methods
-	private void checkInitialization() {
-		if (!initialized) {
+	
+	/**
+	 * checks if ListReader has been properly initialized
+	 */
+	private void checkInitialization()
+	{
+		if (!initialized)
+		{
 			throw new SecurityException("ListReader is not properly initialized.");
 		}
 	} // end checkInitialization

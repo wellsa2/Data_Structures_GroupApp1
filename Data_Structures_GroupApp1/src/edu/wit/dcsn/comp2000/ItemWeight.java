@@ -2,109 +2,75 @@
  * 
  */
 
-package edu.wit.dcsn.comp2000 ;
+package edu.wit.dcsn.comp2000;
 
 /**
+ * An enum representing the weight of an item (light, medium, or heavy)
  * @author David M Rosenberg
- *
  */
 public enum ItemWeight
-    {
+{
      // Weight      Display Name    Numeric Value
      LIGHT(         "Light",            1 ),
      MEDIUM(        "Medium",           2 ),
      HEAVY(         "Heavy",            3 )
      ;
 
-    public final String displayName ;
-    public final int    weightValue ;
+    public final String displayName;
+    public final int    weightValue;
 
     
     /**
-     * 
-     * @param itemWeightDisplayName
-     * @param itemWeightValue
+     * private constructor
+     * @param itemWeightDisplayName  name of weight
+     * @param itemWeightValue  value of weight
      */
     private ItemWeight( String itemWeightDisplayName, int itemWeightWeightValue )
-        {
-        displayName =   itemWeightDisplayName ;
-        weightValue =   itemWeightWeightValue ;
-        } // end constructor
+    {
+        displayName =   itemWeightDisplayName;
+        weightValue =   itemWeightWeightValue;
+    } // end constructor
 
     
     /**
-     * 
+     * converts description to ItemWeight enum
      * @param weightDescription
-     * @return
+     * @return the corresponding ItemWeight enum
      */
     public static ItemWeight interpretDescription( String weightDescription )
-        {
-        // TODO: really implement this
-        ItemWeight correspondingWeight ;
+    {
+        ItemWeight correspondingWeight;
         
         switch( weightDescription.toLowerCase().charAt( 0 ) )
-            {
+        {
             case 'l':
-                correspondingWeight = LIGHT ;
+                correspondingWeight = LIGHT;
                 break;
                 
             case 'm':
-                correspondingWeight = MEDIUM ;
+                correspondingWeight = MEDIUM;
                 break;
                 
             case 'h':
-                correspondingWeight = HEAVY ;
-                break ;
+                correspondingWeight = HEAVY;
+                break;
                 
             default:
-                correspondingWeight = MEDIUM ;
-                break ;
-            }   // end switch()
+                correspondingWeight = MEDIUM;
+                break;
+        } // end switch
         
-        return  correspondingWeight ;
-        }   // end method interpretDescription()
+        return  correspondingWeight;
+    } // end interpretDescription
     
     
     /**
-     * 
+     * returns a string representing the weight
+     * @return the display name for the weight
      */
     @Override
     public String toString()
-        {
-        return displayName ;
-        }   // end method toString()
-    
-    
-    /**
-     * 
-     * @param args
-     */
-    public static void main( String[] args )
-        {
-        //  TODO: implement more complete set of tests/add low-level method tests
-        
-        // display column headers
-        System.out.printf( "%-5s %-15s %-15s %-15s %-15s %-15s%n", 
-                            "#",
-                            "Item Weight",
-                            "Name",
-                            "Display Name",
-                            "Weight Value",
-                            "Interpreted Weight"
-                            );
-        
-        // display each element of the enumeration
-        for ( ItemWeight anItemWeight : ItemWeight.values() )
-            {
-            System.out.printf( "%-5d %-15s %-15s %-15s %-15d %-15s%n",
-                               anItemWeight.ordinal(),
-                               anItemWeight,
-                               anItemWeight.name(),
-                               anItemWeight.displayName,
-                               anItemWeight.weightValue,
-                               interpretDescription( anItemWeight.toString() )
-                               );
-            }   // end for()
-        }   // end main()
-
-    }   // end enum ItemWeight
+    {
+        return displayName;
+    } // end toString
+} // end ItemWeight

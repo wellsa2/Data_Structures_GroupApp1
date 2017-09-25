@@ -1,15 +1,18 @@
 package edu.wit.dcsn.comp2000;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
-public class BagSorter  {
-	/* 
-	* if a bag is full create a new bag
-	* use 3 bags with max of 9 items
-	*/
-	private ArrayList<GroceryItem> items; //array to store grocery items
-	public ArrayList<GroceryBag> bags; //array to hold grocery bags
+/**
+ * A class that puts the grocery items in an ArrayList from ListSorter 
+ * into correct grocery bags.
+ * @author Avery Loftin
+ * @version 1.0
+ */
+public class BagSorter
+{
+	private ArrayList<GroceryItem> items; // ArrayList to store grocery items
+	public ArrayList<GroceryBag> bags; // ArrayList to hold grocery bags
+	
 	
 	//default sized, empty bag
 	public BagSorter()
@@ -24,19 +27,21 @@ public class BagSorter  {
 				if (bags.get(i).add(item))
 				{
 					foundBag = true;
-				}
-			}
+				} // end if
+			} // end for
 			if (!foundBag)
 			{
 				bags.add(new GroceryBag(item));
-			}
-		}
-	}
+			} // end if
+		} // end for
+	} // end default constructor
+	
 	
 	public ArrayList<GroceryBag> getBags()
 	{
 		return bags;
-	}
+	} // end getBags
+	
 	
 	public String toString() 
 	{
@@ -45,7 +50,6 @@ public class BagSorter  {
 			returnString += String.format("Bag " + i + "%n" + bags.get(i).toString());
 		}
 		return returnString;
-	}
-					
-}
+	} // end toString			
+} // end BagSorter
 

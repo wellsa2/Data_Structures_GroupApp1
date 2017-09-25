@@ -1,70 +1,72 @@
 package edu.wit.dcsn.comp2000;
 
 
-//TODO Documentation
+/**
+ * An enum representing the weight of an item (small, medium, or large)
+ */
 public enum ItemSize
-	{
+{
     // Size      Display Name    Numeric Value
     SMALL(         "Small",            1 ),
     MEDIUM(        "Medium",           2 ),
     LARGE(         "Large",            3 )
     ;
 
-   public final String displayName ;
-   public final int    sizeValue ;
+   public final String displayName;
+   public final int    sizeValue;
 
    
    /**
-    * 
-    * @param itemSizeDisplayName
-    * @param itemSizeValue
+    * private constructor
+    * @param itemSizeDisplayName  name of size
+    * @param itemSizeValue  value of size
     */
    private ItemSize( String itemSizeDisplayName, int itemSizeSizeValue )
-       {
+   {
        displayName =   itemSizeDisplayName ;
        sizeValue =   itemSizeSizeValue ;
-       } // end constructor
+   } // end constructor
 
    
    /**
-    * 
+    * converts description to ItemSize enum
     * @param sizeDescription
-    * @return
+    * @return the corresponding ItemSize enum
     */
-   public static ItemSize interpretDescription( String sizeDescription )
-       {
-       // TODO: really implement this
-       ItemSize correspondingSize ;
+    public static ItemSize interpretDescription( String sizeDescription )
+    {
+        ItemSize correspondingSize;
        
-       switch( sizeDescription.toLowerCase().charAt( 0 ) )
-           {
+        switch( sizeDescription.toLowerCase().charAt( 0 ) )
+        {
            case 's':
-               correspondingSize = SMALL ;
+               correspondingSize = SMALL;
                break;
                
            case 'm':
-               correspondingSize = MEDIUM ;
+               correspondingSize = MEDIUM;
                break;
                
            case 'l':
-               correspondingSize = LARGE ;
-               break ;
+               correspondingSize = LARGE;
+               break;
                
            default:
                correspondingSize = MEDIUM ;
-               break ;
-           }   // end switch()
+               break;
+        } // end switch
        
-       return  correspondingSize ;
-       }   // end method interpretDescription()
+    return  correspondingSize ;
+    }   // end interpretDescription
    
    
-   /**
-    * 
-    */
-   @Override
-   public String toString()
-       {
-       return displayName ;
-       }   // end method toString()
-	}
+    /**
+     * returns a string representing the size
+     * @return the display name for the size
+     */
+    @Override
+    public String toString()
+    {
+        return displayName ;
+    } // end toString
+}// end ItemSize
