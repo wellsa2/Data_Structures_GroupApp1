@@ -106,11 +106,11 @@ public class GroceryItem {
 		try
 		{
 			checkInitialization();
-		}
+		} // end try
 		catch (Exception SecurityException)
 		{
 			return "Grocery item is not properly initialized.";
-		}
+		} // end catch
 		return String.format("Item: %-15s Size: %s\t Weight: %s\t Firmness: %s\t Breakable: %s\t",
 				NAME, SIZE.toString(), WEIGHT.toString(), FIRMNESS.toString(), FRAGILITY);
 	} // end toString
@@ -140,7 +140,7 @@ public class GroceryItem {
 	
 	
 	/**
-	 * Unit Tester for GroceryItem
+	 * Unit Test Driver for GroceryItem
 	 */
 	public static void main(String[] args)
 	{
@@ -153,6 +153,10 @@ public class GroceryItem {
 		testEquals();
 	} // end main
 	
+	
+	/**
+	 * tester method for constructors
+	 */
 	private static void testConstructors()
 	{
 		System.out.println( "\n----------\nTesting Constructors:\n" );
@@ -168,8 +172,12 @@ public class GroceryItem {
 		
 		GroceryItem allInvalid = new GroceryItem(null, null, null, null, null);
 		printTest(false, "Testing a null, null, null, null object with null name.", allInvalid.toString(), "Grocery item is not properly initialized.");
-	}
+	} // end testConstructors
 	
+	
+	/**
+	 * tester method for all of the getters
+	 */
 	private static void testGetters()
 	{
 		System.out.println( "\n----------\nTesting Getters:\n" );
@@ -181,21 +189,40 @@ public class GroceryItem {
 		
 		System.out.println( "\nTesting getName:\n" );
 		
-		printTest(true, "Testing getName() for a large, heavy, firm, breakable object with valid name.", validLargeHeavyFirmBreakable.getName(), "validLargeHeavyFirmBreakable");
-		//STUB
-		
-		
-	}
+		printTest(true, "Testing getName() for a valid GroceryItem", validLargeHeavyFirmBreakable.getName(), "validLargeHeavyFirmBreakable");
+		printTest(true, "Testing getSize() for a valid GroceryItem", validLargeHeavyFirmBreakable.getSize().displayName, "Large");
+		printTest(true, "Testing getWeight() for a valid GroceryItem", validLargeHeavyFirmBreakable.getWeight().displayName, "Heavy");
+		printTest(true, "Testing getFirmness() for a valid GroceryItem", validLargeHeavyFirmBreakable.getFirmness().displayName, "Firm");
+		printTest(true, "Testing getFragile() for a valid GroceryItem", String.valueOf(validLargeHeavyFirmBreakable.getFragile()), "true");		
+	} // end testGetters
 	
-	//TODO: write tester for equals method
+	/**
+	 * tester method for equals method
+	 */
 	private static void testEquals()
 	{
 		System.out.println( "\n----------\nTesting Equals:\n" );
-		//STUB
-	}
+		
+		System.out.printf("equals will throw exception if invoked on improperly instantiated GroceryItem "
+				+ "so I won't test them here.\n The initialization feature has been shown to work in the testConstructor.");
+		
+		GroceryItem validLargeHeavyFirmBreakable = new GroceryItem("validLargeHeavyFirmBreakable", ItemSize.LARGE, ItemWeight.HEAVY, ItemFirmness.FIRM, "breakable");
+		GroceryItem validSmallLightSoftUnbreakable = new GroceryItem("validSmallLightSoftUnbreakable", ItemSize.SMALL, ItemWeight.LIGHT, ItemFirmness.SOFT, "unbreakable");
+		
+		printTest(true, "Testing two equal GroceryItems", String.valueOf(validLargeHeavyFirmBreakable.equals(validLargeHeavyFirmBreakable)), "true");
+		printTest(true, "Testing two unequal GroceryItems", String.valueOf(validLargeHeavyFirmBreakable.equals(validSmallLightSoftUnbreakable)), "false");
+	} // end testEquals
 	
+	
+	/**
+	 * utility function to print out testing info
+	 * @param isValid  is this testing valid parameters or invalid ones
+	 * @param description  a description of the test being run
+	 * @param recieved  output received by the test
+	 * @param expected  what the received output should be
+	 */
 	private static void printTest(boolean isValid, String description, String recieved, String expected)
 	{
 		System.out.println(String.format("Is Valid: %s%nDescription: %s%nRecieved: %s%nExpected: %s%n", isValid, description, recieved, expected));
-	}
+	} // end printTest
 } // end GroceryItem
