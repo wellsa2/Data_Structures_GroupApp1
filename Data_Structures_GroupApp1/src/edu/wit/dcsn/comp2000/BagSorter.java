@@ -82,6 +82,6 @@ public class BagSorter
 			returnString += String.format("Bag " + i + "%n" + bags.get(i).toString());
 		}
 		return returnString;
-	} // end toString			
+	} // end toString
 } // end BagSorter
 

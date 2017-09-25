@@ -29,7 +29,9 @@ public class GroceryBag
 		} // end if
 		bag = new ResizableArrayBag<>();
 		holdingType = getItemType(item);
-		add(item);
+		bag.add(item);
+		weightLeft -= item.getWeight().weightValue;
+		spaceLeft -= item.getSize().sizeValue;
 		initialized = true;
 	} // end constructor
 
@@ -116,9 +118,8 @@ public class GroceryBag
 	 * @param item GroceryItem to get the type of
 	 * @return a char representing the holding type of item
 	 */
-	private char getItemType(GroceryItem item)
+	private static char getItemType(GroceryItem item)
 	{
-		checkInitialization();
 		if (item.getFragile())
 		{
 			return 'a'; // breakable items put in bag with light items
