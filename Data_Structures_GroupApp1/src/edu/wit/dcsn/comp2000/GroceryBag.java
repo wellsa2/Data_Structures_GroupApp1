@@ -15,12 +15,13 @@ public class GroceryBag {
 	private ResizableArrayBag<GroceryItem> bag;
 
 	/**
-	 * defines what type of item grocerybag can hold, and adds the first item
+	 * defines what type of item grocery bag can hold, and adds the first item
 	 * @param item
 	 */
 	public GroceryBag(GroceryItem item) {
-		add(item); 
+		bag = new ResizableArrayBag<>();
 		holdingType = getItemType(item);
+		add(item);
 	}
 
 	/**
@@ -83,7 +84,8 @@ public class GroceryBag {
 	private char getItemType(GroceryItem item) {
 		if (item.getFragile()) {
 			return 'a';
-		} else {
+		} 
+		else {
 			switch (item.getWeight().weightValue) {
 			case 1:
 				return 'a';
@@ -91,9 +93,10 @@ public class GroceryBag {
 				return 'b';
 			case 3:
 				return 'c';
+			default:
+				return 'c';
 			}
 		}
-		return '?';
 	}
 
 	/**
@@ -125,7 +128,7 @@ public class GroceryBag {
 	 * @return true if the bag has enough size and space left for item
 	 */
 	private boolean hasRoom(GroceryItem item) {
-		return item.getSize().sizeValue > spaceLeft && item.getWeight().weightValue > weightLeft;
+		return spaceLeft > item.getSize().sizeValue && weightLeft > item.getWeight().weightValue;
 	}
 
 	/**
@@ -146,5 +149,11 @@ public class GroceryBag {
 			bagString.append(item).toString();
 		}
 		return bagString.toString();
+	}
+	
+	public static void main(String[] args)
+	{
+		GroceryBag gb = new GroceryBag(new GroceryItem("pickle", ItemSize.LARGE, ItemWeight.HEAVY, ItemFirmness.FIRM, "unbreakable"));
+		gb.toString();
 	}
 }

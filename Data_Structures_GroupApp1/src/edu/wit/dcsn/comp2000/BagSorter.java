@@ -9,9 +9,7 @@ public class BagSorter  {
 	* use 3 bags with max of 9 items
 	*/
 	private ArrayList<GroceryItem> items; //array to store grocery items
-	public final ArrayList<GroceryBag> bags; //array to hold grocery bags
-	
-	public static final int DEFAULT_MAX_SIZE = 9; //declares max amount
+	public ArrayList<GroceryBag> bags; //array to hold grocery bags
 	
 	//default sized, empty bag
 	public BagSorter()
@@ -44,7 +42,8 @@ public class BagSorter  {
 	{
 		String returnString = "";
 		for (int i = 0; i < bags.size(); i++) {
-			returnString += "/n Bag " + i + " " + bags.get(i);
+			System.out.print(bags.get(i));
+			returnString += "/n Bag " + i + " " + bags.get(i).toString();
 		}
 		return returnString;
 	}
