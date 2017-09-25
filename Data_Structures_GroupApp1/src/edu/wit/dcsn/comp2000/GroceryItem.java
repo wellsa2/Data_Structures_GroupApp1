@@ -51,7 +51,8 @@ public class GroceryItem {
 	@Override
 	public String toString()
 	{
-		return String.format("%s %-10s %s %-10s %s %-10s %s %-10s %s %n", NAME, SIZE.toString(), WEIGHT.toString(), FIRMNESS.toString(), FRAGILITY);
+		return String.format("Item: %s\t Size: %s\t Weight: %s\t Firmness: %s\t Breakable: %s\t %n",
+				NAME, SIZE.toString(), WEIGHT.toString(), FIRMNESS.toString(), FRAGILITY);
 	}
 	
 	public boolean equals(GroceryItem item) {

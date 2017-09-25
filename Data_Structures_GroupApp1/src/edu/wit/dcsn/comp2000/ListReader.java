@@ -14,14 +14,14 @@ import java.util.Scanner;
  */
 
 public class ListReader 
-	{
+{
 	
 	//instance variables
 	/**
 	 * resizeable array (arraylist) holding type GroceryItem
 	 */
 	private ArrayList<GroceryItem> groceryList = new ArrayList<GroceryItem>(20);
-	
+	private boolean initialized;
 	//constructors
 	
 	/**
@@ -37,20 +37,21 @@ public class ListReader
 	 * @param GroceriesTextFile
 	 */
 	public ListReader(String GroceriesTextFile)
-		{
+	{
 		try
-			{
+		{
 			Scanner sc = new Scanner(new FileReader(GroceriesTextFile));
 			while(sc.hasNext())
-				{
-				groceryList.add(new GroceryItem(sc.next(), ItemSize.interpretDescription(sc.next()), ItemWeight.interpretDescription(sc.next()), ItemFirmness.interpretDescription(sc.next()), sc.next()));
-				}
-			} 
-		catch (FileNotFoundException e)
 			{
+				groceryList.add(new GroceryItem(sc.next(), ItemSize.interpretDescription(sc.next()), ItemWeight.interpretDescription(sc.next()), ItemFirmness.interpretDescription(sc.next()), sc.next()));
+			}
+		} 
+		catch (FileNotFoundException e)
+		{
 			System.out.println("File " + GroceriesTextFile + " not found");
-			}	
-		}//end ListReader constructor	
+		}
+		initialized = true;
+	}//end ListReader constructor	
 	
 	//public methods
 	
@@ -58,7 +59,8 @@ public class ListReader
 	 * returns the full GroceryList
 	 * @return groceryList
 	 */
-	public ArrayList<GroceryItem> getGroceryList(){
+	public ArrayList<GroceryItem> getGroceryList() {
+		checkInitialization();
 		return groceryList;
 	}//end getGroceryList
 	
@@ -69,6 +71,7 @@ public class ListReader
 	 * @return groceryItem
 	 */
 	public GroceryItem getGroceryItem(int i) {
+		checkInitialization();
 		return groceryList.get(i);
 	}//end getGroceryItem
 	
@@ -76,11 +79,18 @@ public class ListReader
 	 * returns a string containing a toString of all GroceryItem objects
 	 */
 	public String toString() {
+		checkInitialization();
 		StringBuilder listString = new StringBuilder();
 		for(int i = 0; i < groceryList.size(); i++) {
 			listString.append(groceryList.get(i).toString());
 		}
 		return listString.toString();
-	}
+	} // end toString
 	
-	}// end ListReader class
+	//private methods
+	private void checkInitialization() {
+		if (!initialized) {
+			throw new SecurityException("ListReader is not properly initialized.");
+		}
+	} // end checkInitialization
+}// end ListReader class
