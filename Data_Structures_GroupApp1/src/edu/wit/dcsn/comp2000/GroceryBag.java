@@ -22,7 +22,7 @@ public class GroceryBag
 	 */
 	public GroceryBag(GroceryItem item)
 	{
-		if (item == null || weightLeft > item.getWeight().weightValue && spaceLeft > item.getSize().sizeValue)
+		if (item == null || (weightLeft > item.getWeight().weightValue && spaceLeft > item.getSize().sizeValue))
 		{
 			initialized = false;
 			System.exit(1);
@@ -256,4 +256,12 @@ public class GroceryBag
 			throw new SecurityException("Grocery bag is not properly initialized.");
 		} // end checkInitialization
 	} // end checkInitialization
+	
+	/**
+	 * Unit Tester for GroceryBag
+	 */
+	public static void main(String[] args)
+	{
+		
+	} // end main
 } // end GroceryBag

@@ -67,4 +67,13 @@ public enum ItemFirmness
 	{
 		return displayName;
 	} // end toString
+	
+	
+	/**
+	 * Unit Tester for ItemFirmness
+	 */
+	public static void main(String[] args)
+	{
+		
+	} // end main
 } // end ItemFirmness

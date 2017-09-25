@@ -102,4 +102,13 @@ public class ListReader
 			throw new SecurityException("ListReader is not properly initialized.");
 		}
 	} // end checkInitialization
+	
+	
+	/**
+	 * Unit Tester for ListReader
+	 */
+	public static void main(String[] args)
+	{
+		
+	} // end main
 }// end ListReader class

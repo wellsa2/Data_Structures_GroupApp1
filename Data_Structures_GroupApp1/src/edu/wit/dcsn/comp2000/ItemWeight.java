@@ -73,4 +73,13 @@ public enum ItemWeight
     {
         return displayName;
     } // end toString
+    
+    
+    /**
+	 * Unit Tester for ItemWeight
+	 */
+	public static void main(String[] args)
+	{
+		
+	} // end main
 } // end ItemWeight

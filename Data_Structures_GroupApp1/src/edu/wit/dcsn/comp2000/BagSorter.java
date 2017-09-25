@@ -83,5 +83,14 @@ public class BagSorter
 		}
 		return returnString;
 	} // end toString
+	
+	
+	/**
+	 * Unit Test Driver for BagSorter
+	 */
+	public static void main(String[] args)
+	{
+		System.out.println("Testing Class BagSorter!");
+	} // end main
 } // end BagSorter
 

@@ -69,4 +69,13 @@ public enum ItemSize
     {
         return displayName ;
     } // end toString
+    
+    
+    /**
+	 * Unit Tester for ItemSize
+	 */
+	public static void main(String[] args)
+	{
+		
+	} // end main
 }// end ItemSize
