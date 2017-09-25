@@ -42,8 +42,7 @@ public class BagSorter  {
 	{
 		String returnString = "";
 		for (int i = 0; i < bags.size(); i++) {
-			System.out.print(bags.get(i));
-			returnString += "/n Bag " + i + " " + bags.get(i).toString();
+			returnString += String.format("Bag " + i + "%n" + bags.get(i).toString());
 		}
 		return returnString;
 	}

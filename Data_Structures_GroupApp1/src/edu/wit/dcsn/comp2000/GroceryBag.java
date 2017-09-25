@@ -31,6 +31,8 @@ public class GroceryBag {
 	public boolean add(GroceryItem item) {
 		if (canHold(item)) {
 			bag.add(item);
+			weightLeft -= item.getWeight().weightValue;
+			spaceLeft -= item.getSize().sizeValue;
 			return true;
 		}
 		return false;
@@ -143,17 +145,11 @@ public class GroceryBag {
 	 * toString method for bag
 	 */
 	public String toString() {
-		GroceryItem[] bagArray = bag.toArray();
+		Object[] bagArray = bag.toArray();
 		StringBuilder bagString = new StringBuilder();
-		for(GroceryItem item : bagArray) {
-			bagString.append(item).toString();
+		for(Object item : bagArray) {
+			bagString.append((GroceryItem) item).toString();
 		}
 		return bagString.toString();
-	}
-	
-	public static void main(String[] args)
-	{
-		GroceryBag gb = new GroceryBag(new GroceryItem("pickle", ItemSize.LARGE, ItemWeight.HEAVY, ItemFirmness.FIRM, "unbreakable"));
-		gb.toString();
 	}
 }
