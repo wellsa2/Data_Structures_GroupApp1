@@ -24,17 +24,20 @@ public class GroceryItem {
 	 */
 	public GroceryItem(String name, ItemSize size, ItemWeight weight, ItemFirmness firmness, String fragility)
 	{
+		NAME = name;
+		SIZE = size;
+		WEIGHT = weight;
+		FIRMNESS = firmness;
+		FRAGILITY = ("breakable".equalsIgnoreCase(fragility))?true:false;
+		initialized = true;
 		if (name == null || size == null || weight == null|| firmness == null || fragility == null)
 		{
 			initialized = false;
-			System.exit(1);
 		}
-		NAME = name;
-		SIZE=size;
-		WEIGHT=weight;
-		FIRMNESS=firmness;
-		FRAGILITY=(fragility.equalsIgnoreCase("breakable"))?true:false;
-		initialized = true;
+		else
+		{
+			initialized = true;
+		}
 	} // end constructor
 
 	
@@ -100,8 +103,15 @@ public class GroceryItem {
 	@Override
 	public String toString()
 	{
-		checkInitialization();
-		return String.format("Item: %-15s Size: %s\t Weight: %s\t Firmness: %s\t Breakable: %s\t %n",
+		try
+		{
+			checkInitialization();
+		}
+		catch (Exception SecurityException)
+		{
+			return "Grocery item is not properly initialized.";
+		}
+		return String.format("Item: %-15s Size: %s\t Weight: %s\t Firmness: %s\t Breakable: %s\t",
 				NAME, SIZE.toString(), WEIGHT.toString(), FIRMNESS.toString(), FRAGILITY);
 	} // end toString
 	
@@ -127,4 +137,65 @@ public class GroceryItem {
 			throw new SecurityException("Grocery item is not properly initialized.");
 		} // end checkInitialization
 	} // end checkInitialization
+	
+	
+	/**
+	 * Unit Tester for GroceryItem
+	 */
+	public static void main(String[] args)
+	{
+		System.out.println( "\n----------\nTesting GroceryItem:\n" );
+		
+		testConstructors();
+		
+		testGetters();
+		
+		testEquals();
+	} // end main
+	
+	private static void testConstructors()
+	{
+		System.out.println( "\n----------\nTesting Constructors:\n" );
+		
+		GroceryItem validLargeHeavyFirmBreakable = new GroceryItem("validLargeHeavyFirmBreakable", ItemSize.LARGE, ItemWeight.HEAVY, ItemFirmness.FIRM, "breakable");
+		printTest(true, "Testing a large, heavy, firm, breakable object with valid name.", validLargeHeavyFirmBreakable.toString(), "Item: validLargeHeavyFirmFragile Size: Large   Weight: Heavy   Firmness: Firm  Breakable: true");
+		
+		GroceryItem validMediumMediumHardBreakable = new GroceryItem("validMediumMediumHardBreakable", ItemSize.MEDIUM, ItemWeight.MEDIUM, ItemFirmness.HARD, "breakable");
+		printTest(true, "Testing a medium, medium, hard, breakable object with valid name.", validMediumMediumHardBreakable.toString(), "Item: validMediumMediumHardBreakable Size: Medium      Weight: Medium  Firmness: Hard  Breakable: true");
+		
+		GroceryItem validSmallLightSoftUnbreakable = new GroceryItem("validSmallLightSoftUnbreakable", ItemSize.SMALL, ItemWeight.LIGHT, ItemFirmness.SOFT, "unbreakable");
+		printTest(true, "Testing a small, light, soft, unbreakable object with valid name.", validSmallLightSoftUnbreakable.toString(), "Item: validSmallLightSoftUnbreakable Size: Small       Weight: Light   Firmness: Soft  Breakable: false");
+		
+		GroceryItem allInvalid = new GroceryItem(null, null, null, null, null);
+		printTest(false, "Testing a null, null, null, null object with null name.", allInvalid.toString(), "Grocery item is not properly initialized.");
+	}
+	
+	private static void testGetters()
+	{
+		System.out.println( "\n----------\nTesting Getters:\n" );
+		
+		System.out.printf("Getters will throw exception if invoked on improperly instantiated GroceryItem "
+				+ "so I won't test them here.\n The initialization feature has been shown to work in the testConstructor.");
+		
+		GroceryItem validLargeHeavyFirmBreakable = new GroceryItem("validLargeHeavyFirmBreakable", ItemSize.LARGE, ItemWeight.HEAVY, ItemFirmness.FIRM, "breakable");
+		
+		System.out.println( "\nTesting getName:\n" );
+		
+		printTest(true, "Testing getName() for a large, heavy, firm, breakable object with valid name.", validLargeHeavyFirmBreakable.getName(), "validLargeHeavyFirmBreakable");
+		//STUB
+		
+		
+	}
+	
+	//TODO: write tester for equals method
+	private static void testEquals()
+	{
+		System.out.println( "\n----------\nTesting Equals:\n" );
+		//STUB
+	}
+	
+	private static void printTest(boolean isValid, String description, String recieved, String expected)
+	{
+		System.out.println(String.format("Is Valid: %s%nDescription: %s%nRecieved: %s%nExpected: %s%n", isValid, description, recieved, expected));
+	}
 } // end GroceryItem
