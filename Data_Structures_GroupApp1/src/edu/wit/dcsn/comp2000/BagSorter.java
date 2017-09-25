@@ -39,6 +39,15 @@ public class BagSorter  {
 	{
 		return bags;
 	}
+	
+	public String toString() 
+	{
+		String returnString = "";
+		for (int i = 0; i < bags.size(); i++) {
+			returnString += "/n Bag " + i + " " + bags.get(i);
+		}
+		return returnString;
+	}
 					
 }
 
