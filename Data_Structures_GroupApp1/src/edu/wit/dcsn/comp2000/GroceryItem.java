@@ -101,7 +101,7 @@ public class GroceryItem {
 	public String toString()
 	{
 		checkInitialization();
-		return String.format("Item: %s\t Size: %s\t Weight: %s\t Firmness: %s\t Breakable: %s\t %n",
+		return String.format("Item: %-15s Size: %s\t Weight: %s\t Firmness: %s\t Breakable: %s\t %n",
 				NAME, SIZE.toString(), WEIGHT.toString(), FIRMNESS.toString(), FRAGILITY);
 	} // end toString
 	
