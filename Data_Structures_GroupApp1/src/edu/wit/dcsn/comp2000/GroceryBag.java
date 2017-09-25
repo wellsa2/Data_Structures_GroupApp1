@@ -193,7 +193,7 @@ public class GroceryBag
 	private boolean hasRoom(GroceryItem item)
 	{
 		checkInitialization();
-		return spaceLeft > item.getSize().sizeValue && weightLeft > item.getWeight().weightValue;
+		return spaceLeft >= item.getSize().sizeValue && weightLeft >= item.getWeight().weightValue;
 	} // end hasRoom
 
 	
