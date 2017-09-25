@@ -13,7 +13,7 @@ public class GroceryBag
 	private int spaceLeft = 10; // Maximum size
 	private char holdingType = '?'; // type of item the bag can hold.
 	private ResizableArrayBag<GroceryItem> bag; //Bag to hold
-	private boolean initialized; // ensures item is properly initialized
+	private boolean initialized = false; // ensures item is properly initialized
 
 	
 	/**
@@ -22,15 +22,17 @@ public class GroceryBag
 	 */
 	public GroceryBag(GroceryItem item)
 	{
+		System.out.println("break 1");
 		if (item == null)
 		{
+			System.out.println("break 2");
 			initialized = false;
 			System.exit(1);
 		} // end if
+		initialized = true; //must be initialized here to use add and getItemType in constructor
 		bag = new ResizableArrayBag<>();
 		holdingType = getItemType(item);
 		add(item);
-		initialized = true;
 	} // end constructor
 
 	
