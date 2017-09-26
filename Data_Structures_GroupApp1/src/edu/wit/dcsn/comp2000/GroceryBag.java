@@ -264,28 +264,6 @@ public class GroceryBag
 	{
 		System.out.println( "\n----------\nTesting GroceryBag:\n" );
 		
-		testConstructors();
-		
-		testGetters();
-		
-		testMethods();
 	} // end main
 
-
-	private static void testMethods() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	private static void testGetters() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	private static void testConstructors() {
-		// TODO Auto-generated method stub
-		
-	}
 } // end GroceryBag
