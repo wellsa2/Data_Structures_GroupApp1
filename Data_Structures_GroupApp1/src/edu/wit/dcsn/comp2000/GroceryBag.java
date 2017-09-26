@@ -25,14 +25,16 @@ public class GroceryBag
 		if (item == null || (weightLeft <= item.getWeight().weightValue && spaceLeft <= item.getSize().sizeValue))
 		{
 			initialized = false;
-			System.exit(1);
 		} // end if
-		bag = new ResizableArrayBag<>();
-		holdingType = getItemType(item);
-		bag.add(item); //skips add method's checkInitialization
-		weightLeft -= item.getWeight().weightValue;
-		spaceLeft -= item.getSize().sizeValue;
-		initialized = true;
+		else 
+		{
+			bag = new ResizableArrayBag<>();
+			holdingType = getItemType(item);
+			bag.add(item); //skips add method's checkInitialization
+			weightLeft -= item.getWeight().weightValue;
+			spaceLeft -= item.getSize().sizeValue;
+			initialized = true;
+		}
 	} // end constructor
 
 	
