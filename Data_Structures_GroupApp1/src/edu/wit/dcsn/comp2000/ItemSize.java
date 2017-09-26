@@ -76,16 +76,14 @@ public enum ItemSize
     } // end toString
     
     
-    /**
-	 * Unit Tester for ItemSize
-	 */
-	 
+   
+	/* 
+	* Unit Tester for ItemSize
+	*/
 	public static void main(String[] args)
 	{
 		System.out.println( "\n----------\nTesting ItemSize:\n" );
-		
 		testNameAndValue();
-		
 		testMethods();
 	} // end main
 	
@@ -115,11 +113,11 @@ public enum ItemSize
 	{
 		System.out.println( "\n----------\nTesting Methods:\n" );
 		
-		printTest(true, "Testing interpretDescription with valid string", interpretDescription("firm").displayName, "Firm");
-		printTest(false, "Testing interpretDescription with undefined string", interpretDescription("z").displayName, "Firm"); // Firm is default value
+		printTest(true, "Testing interpretDescription with valid string", interpretDescription("medium").displayName, "Medium");
+		printTest(false, "Testing interpretDescription with undefined string", interpretDescription("z").displayName, "Medium"); // Medium is default value
 		printTest(false, "Testing interpretDescription with null", String.valueOf(interpretDescription(null)), "null");
 		
-		printTest(true, "Testing toString", ItemWeight.HEAVY.toString(), "Heavy");
+		printTest(true, "Testing toString", ItemSize.Larger.toString(), "Large");
 		
 	} // end testMethods
 	
@@ -135,5 +133,5 @@ public enum ItemSize
 	{
 		System.out.println(String.format("Is Valid: %s%nDescription: %s%nRecieved: %s%nExpected: %s%n", isValid, description, recieved, expected));
 	} // end printTest
-} // end ItemFirmness
+} // end ItemSize
 
