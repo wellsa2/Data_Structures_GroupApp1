@@ -79,10 +79,61 @@ public enum ItemSize
     /**
 	 * Unit Tester for ItemSize
 	 */
+	 
 	public static void main(String[] args)
 	{
-		for (ItemSize correspondingSize: ItemSize.values()){
-			System.out.println(correspondingSize);
-		}
+		System.out.println( "\n----------\nTesting ItemSize:\n" );
+		
+		testNameAndValue();
+		
+		testMethods();
 	} // end main
-}// end ItemSize
+	
+	
+	/**
+	 * tester for display names and values
+	 */
+	private static void testNameAndValue()
+	{
+		System.out.println( "\n----------\nTesting Names and Values:\n" );
+		
+		printTest(true, "Testing SMALL display name", ItemSize.SMALL.displayName, "Small");
+		printTest(true, "Testing SMALL value", String.valueOf(ItemSize.SMALL.sizeValue), "1");
+		
+		printTest(true, "Testing MEDIUM display name",ItemSize .MEDIUM.displayName, "Medium");
+		printTest(true, "Testing MEDIUM value", String.valueOf(ItemSize.MEDIUM.sizeValue), "2");
+
+		printTest(true, "Testing LARGE display name", ItemSize.LARGE.displayName, "Large");
+		printTest(true, "Testing LARGE value", String.valueOf(ItemSize.LARGE.sizeValue), "3");
+	} // end testNameAndValue()
+	
+	
+	/**
+	 * tester for interpretDescription and toString
+	 */
+	private static void testMethods()
+	{
+		System.out.println( "\n----------\nTesting Methods:\n" );
+		
+		printTest(true, "Testing interpretDescription with valid string", interpretDescription("firm").displayName, "Firm");
+		printTest(false, "Testing interpretDescription with undefined string", interpretDescription("z").displayName, "Firm"); // Firm is default value
+		printTest(false, "Testing interpretDescription with null", String.valueOf(interpretDescription(null)), "null");
+		
+		printTest(true, "Testing toString", ItemWeight.HEAVY.toString(), "Heavy");
+		
+	} // end testMethods
+	
+	
+	/**
+	 * utility function to print out testing info
+	 * @param isValid  is this testing valid parameters or invalid ones
+	 * @param description  a description of the test being run
+	 * @param recieved  output received by the test
+	 * @param expected  what the received output should be
+	 */
+	private static void printTest(boolean isValid, String description, String recieved, String expected)
+	{
+		System.out.println(String.format("Is Valid: %s%nDescription: %s%nRecieved: %s%nExpected: %s%n", isValid, description, recieved, expected));
+	} // end printTest
+} // end ItemFirmness
+
