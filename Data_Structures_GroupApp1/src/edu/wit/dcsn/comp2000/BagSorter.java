@@ -90,7 +90,7 @@ public class BagSorter
 	 */
 	public static void main(String[] args)
 	{
-		System.out.println("Testing Class BagSorter!");
+		System.out.println("Testing Class BagSorter");
 	} // end main
 } // end BagSorter
 
