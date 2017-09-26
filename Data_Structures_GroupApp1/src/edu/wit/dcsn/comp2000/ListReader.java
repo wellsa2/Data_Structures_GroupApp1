@@ -117,7 +117,8 @@ public class ListReader
 
 		testToString();
 
-		//test getgrocerylist and getgroceryitem
+		testGetGroceryList();
+		testGetGroceryItem();
 	} // end main
 
 

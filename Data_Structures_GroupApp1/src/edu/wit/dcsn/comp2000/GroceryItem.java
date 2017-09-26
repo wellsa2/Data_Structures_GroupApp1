@@ -124,7 +124,7 @@ public class GroceryItem {
 	public boolean equals(GroceryItem item)
 	{
 		checkInitialization();
-		return this.toString().equalsIgnoreCase(item.toString());
+		return (this.getName().equalsIgnoreCase(item.getName()) && this.getSize().equals(item.getSize()) && this.getWeight().equals(item.getWeight()) && this.getFirmness().equals(item.getFirmness()) && this.getFragile() == item.getFragile());
 	} // end equals
 	
 	/**
