@@ -117,7 +117,7 @@ public enum ItemSize
 		printTest(false, "Testing interpretDescription with undefined string", interpretDescription("z").displayName, "Medium"); // Medium is default value
 		printTest(false, "Testing interpretDescription with null", String.valueOf(interpretDescription(null)), "null");
 		
-		printTest(true, "Testing toString", ItemSize.Larger.toString(), "Large");
+		printTest(true, "Testing toString", ItemSize.Large.toString(), "Large");
 		
 	} // end testMethods
 	
