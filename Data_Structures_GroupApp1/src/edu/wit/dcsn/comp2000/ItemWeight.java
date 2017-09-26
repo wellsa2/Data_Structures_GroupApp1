@@ -41,6 +41,11 @@ public enum ItemWeight
     {
         ItemWeight correspondingWeight;
         
+        if (weightDescription == null)
+		{
+			return null;
+		} // end if
+        
         switch( weightDescription.toLowerCase().charAt( 0 ) )
         {
             case 'l':

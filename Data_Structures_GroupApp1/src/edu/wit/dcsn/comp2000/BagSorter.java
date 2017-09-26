@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * A class that puts the grocery items in an ArrayList from ListSorter 
  * into correct grocery bags.
- * @author Avery Loftin
+ * @author Leslie V
  * @version 1.0
  */
 public class BagSorter

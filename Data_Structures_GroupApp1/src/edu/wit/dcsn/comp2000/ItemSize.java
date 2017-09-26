@@ -36,6 +36,11 @@ public enum ItemSize
     public static ItemSize interpretDescription( String sizeDescription )
     {
         ItemSize correspondingSize;
+        
+        if (sizeDescription == null)
+		{
+			return null;
+		} // end if
        
         switch( sizeDescription.toLowerCase().charAt( 0 ) )
         {
