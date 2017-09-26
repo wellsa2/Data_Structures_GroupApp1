@@ -32,7 +32,7 @@ public class BagSorter
 	public BagSorter(ListReader listreader)
 	{
 		items = listreader.getGroceryList();
-		bags = new ArrayList<>();
+		bags = new ArrayList<GroceryBag>();
 		for (GroceryItem item : items)
 		{
 			boolean foundBag  = false;
@@ -91,6 +91,30 @@ public class BagSorter
 	public static void main(String[] args)
 	{
 		System.out.println("Testing Class BagSorter");
+		
+		testConstructors();
+		
+		testGetters();
+		
 	} // end main
+
+
+
+	private static void testGetters() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private static void testConstructors() {
+		BagSorter bag = new BagSorter();
+		
+		printTest(true, "Stuff", bag.toString(), "expected");
+	}
+	
+	private static void printTest(boolean isValid, String description, String recieved, String expected)
+	{
+		System.out.println(String.format("Is Valid: %s%nDescription: %s%nRecieved: %s%nExpected: %s%n", isValid, description, recieved, expected));
+	} // end printTest
 } // end BagSorter
 

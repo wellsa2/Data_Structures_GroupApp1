@@ -22,7 +22,7 @@ public class GroceryBag
 	 */
 	public GroceryBag(GroceryItem item)
 	{
-		if (item == null || (weightLeft > item.getWeight().weightValue && spaceLeft > item.getSize().sizeValue))
+		if (item == null || (weightLeft <= item.getWeight().weightValue && spaceLeft <= item.getSize().sizeValue))
 		{
 			initialized = false;
 			System.exit(1);
@@ -181,7 +181,7 @@ public class GroceryBag
 	private boolean isCorrectType(GroceryItem item)
 	{
 		checkInitialization();
-		return holdingType == getItemType(item) || holdingType == '?';
+		return (holdingType == getItemType(item) || holdingType == '?');
 	} // end isCorrectType
 
 	
