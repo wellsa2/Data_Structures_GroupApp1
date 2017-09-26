@@ -80,6 +80,8 @@ public enum ItemWeight
 	 */
 	public static void main(String[] args)
 	{
-		
+		for(ItemWeight displayName: ItemWeight.displayName()){
+			System.out.println (displayName);
+		}
 	} // end main
 } // end ItemWeight
