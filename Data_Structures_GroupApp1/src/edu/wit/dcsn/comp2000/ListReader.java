@@ -109,32 +109,6 @@ public class ListReader
 	 */
 	public static void main(String[] args)
 	{
-System.out.println( "\n----------\nTesting ListReader:\n" );
 		
-		testConstructors();
-		
-		testGetters();
-		
-		testEquals();
 	} // end main
-
-
-	private static void testEquals() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	private static void testGetters() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	private static void testConstructors() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	
 }// end ListReader class
