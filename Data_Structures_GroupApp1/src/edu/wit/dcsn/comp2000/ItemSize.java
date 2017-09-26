@@ -81,6 +81,8 @@ public enum ItemSize
 	 */
 	public static void main(String[] args)
 	{
-		
+		for (ItemSize correspondingSize: ItemSize.values()){
+			System.out.println(correspondingSize);
+		}
 	} // end main
 }// end ItemSize

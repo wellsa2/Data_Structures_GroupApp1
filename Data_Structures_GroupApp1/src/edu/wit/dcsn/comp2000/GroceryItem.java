@@ -162,7 +162,7 @@ public class GroceryItem {
 		System.out.println( "\n----------\nTesting Constructors:\n" );
 		
 		GroceryItem validLargeHeavyFirmBreakable = new GroceryItem("validLargeHeavyFirmBreakable", ItemSize.LARGE, ItemWeight.HEAVY, ItemFirmness.FIRM, "breakable");
-		printTest(true, "Testing a large, heavy, firm, breakable object with valid name.", validLargeHeavyFirmBreakable.toString(), "Item: validLargeHeavyFirmFragile Size: Large   Weight: Heavy   Firmness: Firm  Breakable: true");
+		printTest(true, "Testing a large, heavy, firm, breakable object with valid name.", validLargeHeavyFirmBreakable.toString(), "Item: validLargeHeavyFirmBreakable Size: Large         Weight: Heavy   Firmness: Firm  Breakable: true");
 		
 		GroceryItem validMediumMediumHardBreakable = new GroceryItem("validMediumMediumHardBreakable", ItemSize.MEDIUM, ItemWeight.MEDIUM, ItemFirmness.HARD, "breakable");
 		printTest(true, "Testing a medium, medium, hard, breakable object with valid name.", validMediumMediumHardBreakable.toString(), "Item: validMediumMediumHardBreakable Size: Medium      Weight: Medium  Firmness: Hard  Breakable: true");
