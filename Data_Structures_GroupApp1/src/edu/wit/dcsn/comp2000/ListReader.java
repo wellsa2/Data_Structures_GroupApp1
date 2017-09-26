@@ -1,8 +1,10 @@
 package edu.wit.dcsn.comp2000;
+import javax.sound.midi.SysexMessage;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -105,10 +107,87 @@ public class ListReader
 	
 	
 	/**
-	 * Unit Tester for ListReader
+	 * Unit Test Driver for ListReader
 	 */
 	public static void main(String[] args)
 	{
-		
+		System.out.println( "\n----------\nTesting GroceryItem:\n" );
+
+		testConstructors();
+
+		testToString();
+
+		//test getgrocerylist and getgroceryitem
 	} // end main
+
+
+	/**
+	 * Tester for constructors
+	 */
+	private static void testConstructors()
+	{
+		System.out.println( "\n----------\nTesting Constructors:\n" );
+
+		System.out.println("Creating default ListReader");
+		new ListReader();
+		System.out.println("Expected: *Filename* has been found");
+
+		System.out.println("Creating valid ListReader");
+		new ListReader(System.getProperty("user.dir") + File.separator + "groceries-1.txt");
+		System.out.println("Expected: *Filename* has been found");
+
+		System.out.println("Creating invalid ListReader");
+		new ListReader("invalid");
+		System.out.println("Expected: File *Filename* not found");
+	} // end testConstructors
+
+
+	/**
+	 * tests toString
+	 */
+	private static void testToString()
+	{
+		System.out.println( "\n----------\nTesting toString:\n" );
+
+		ListReader listReader = new ListReader();
+		System.out.print(listReader.toString());
+	} // end testToString
+
+
+	/**
+	 * tests getGroceryList
+	 */
+	private static void testGetGroceryList()
+	{
+		System.out.println( "\n----------\nTesting getGroceryList:\n" );
+		for (GroceryItem item : new ListReader().getGroceryList())
+		{
+			System.out.println(item.toString());
+		}
+		System.out.println();
+	}// end testGroceryList
+
+
+	/**
+	 * tests getGroceryItem
+	 */
+	private static void testGetGroceryItem()
+	{
+		System.out.println( "\n----------\nTesting getGroceryItem:\n" );
+
+		System.out.println(new ListReader().getGroceryItem(0));
+	} // end testGetGroceryItem
+
+
+	/**
+	 * utility function to print out testing info
+	 * @param isValid  is this testing valid parameters or invalid ones
+	 * @param description  a description of the test being run
+	 * @param recieved  output received by the test
+	 * @param expected  what the received output should be
+	 */
+	private static void printTest(boolean isValid, String description, String recieved, String expected)
+	{
+		System.out.println(String.format("Is Valid: %s%nDescription: %s%nRecieved: %s%nExpected: %s%n", isValid, description, recieved, expected));
+	} // end printTest
 }// end ListReader class

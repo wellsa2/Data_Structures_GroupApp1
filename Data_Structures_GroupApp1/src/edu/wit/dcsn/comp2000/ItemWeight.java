@@ -120,7 +120,7 @@ public enum ItemWeight
 		printTest(false, "Testing interpretDescription with undefined string", interpretDescription("z").displayName, "Medium"); // Medium is default value
 		printTest(false, "Testing interpretDescription with null", String.valueOf(interpretDescription(null)), "null");
 		
-		printTest(true, "Testing toString", weightValue.Heavy.toString(), "Heavy");
+		printTest(true, "Testing toString", ItemWeight.HEAVY.toString(), "Heavy");
 		
 	} // end testMethods
 	
