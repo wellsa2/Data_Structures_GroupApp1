@@ -220,7 +220,7 @@ public class GroceryBag
 		StringBuilder bagString = new StringBuilder();
 		for(Object item : bagArray)
 		{
-			bagString.append((GroceryItem) item).toString();
+			bagString.append(((GroceryItem) item).toString() + "\n");
 		} // end for
 		return bagString.toString();
 	} // end toString
